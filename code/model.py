@@ -28,7 +28,7 @@ def config():
     import tensorflow as tf
     from keras.backend.tensorflow_backend import set_session
     config = tf.ConfigProto()
-    config.gpu_options.per_process_gpu_memory_fraction = 0.5
+    config.gpu_options.per_process_gpu_memory_fraction = 0.4
     set_session(tf.Session(config=config))
 
 config()
@@ -155,7 +155,7 @@ for the_file in os.listdir(folder):
 
 
 # training
-nb_epoch = 1000
+nb_epoch = 10000
 for e in range(nb_epoch):
     print()
     print("* Epoch %d" % e)
@@ -165,7 +165,7 @@ for e in range(nb_epoch):
               shuffle=True,
               callbacks=[tensorboard])
     
-    if (e+1) % 500 == 0:
+    if (e+1) % 1000 == 0:
         model.save('../save/' + str(e+1) + '.model.h5')
         print('/// model saved ///')
 
