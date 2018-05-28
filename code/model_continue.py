@@ -88,7 +88,7 @@ def load_batch(batch_size):
 
 
 # continue training
-m_num = 10000
+m_num = 67000
 
 # load
 model = load_model('../save/' + str(m_num) + '.model.h5')
